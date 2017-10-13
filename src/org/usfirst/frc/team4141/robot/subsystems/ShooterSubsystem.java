@@ -6,6 +6,7 @@ import org.usfirst.frc.team4141.MDRobotBase.config.ConfigSetting;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SolenoidBase;
 import org.usfirst.frc.team4141.MDRobotBase.sensors.MDDigitalInput;
+import org.usfirst.frc.team4141.robot.subsystems.ShooterSubsystem.SolenoidPosition;
 
 import edu.wpi.first.wpilibj.SpeedController;
 
@@ -13,18 +14,20 @@ public class ShooterSubsystem extends MDSubsystem {
 	
 	private double shootSpeed = 1;
 	
-	public enum SolenoidPosition{
-		solenoid1
-	}
-	
 	public enum SwitchPosition{
 		extended,
 		retracted
 	}
 	
+	public enum SolenoidPosition{
+		on,
+		off
+	}
+	
 	private SpeedController shooterController1;
 	private SpeedController shooterController2;
 	
+
 	public static String motorName1="shootermotor1";
 	public static String motorName2="shootermotor2";
 
@@ -33,7 +36,11 @@ public class ShooterSubsystem extends MDSubsystem {
 		super.configure();
 
 		if(getSolenoids()==null 
-				|| !getSolenoids().containsKey(SolenoidPosition.solenoid1.toString()))
+				|| !getSolenoids().containsKey(SolenoidPosition.on))
+			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
+		
+		if(getSolenoids()==null 
+				|| !getSolenoids().containsKey(SolenoidPosition.off))
 			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
 		
 		if(getMotors()==null 
@@ -85,13 +92,13 @@ public class ShooterSubsystem extends MDSubsystem {
 	}
 	
 	public void open(){
-		Solenoid solenoid1Solenoid = (Solenoid)getSolenoids().get(SolenoidPosition.solenoid1);
-		solenoid1Solenoid.set(true);
+		Solenoid piston = (Solenoid)getSolenoids().get(SolenoidPosition.on);
+		piston.set(true);
 	}
 	
 	public void close(){
-		Solenoid solenoid1Solenoid = (Solenoid)getSolenoids().get(SolenoidPosition.solenoid1);
-		solenoid1Solenoid.set(false);
+		Solenoid piston = (Solenoid)getSolenoids().get(SolenoidPosition.off);
+		piston.set(false);
 
 }
 	
@@ -103,6 +110,8 @@ public class ShooterSubsystem extends MDSubsystem {
 		return ((MDDigitalInput)(getSensors().get(SwitchPosition.extended.toString()))).get();
 		
 }
+
+	
 	
 	
 }
