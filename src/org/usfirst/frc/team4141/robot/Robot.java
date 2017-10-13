@@ -12,6 +12,7 @@ import org.usfirst.frc.team4141.robot.subsystems.CoreSubsystem;
 import org.usfirst.frc.team4141.robot.subsystems.MDDriveSubsystem;
 import org.usfirst.frc.team4141.robot.subsystems.MDDriveSubsystem.MotorPosition;
 import org.usfirst.frc.team4141.robot.subsystems.MDDriveSubsystem.Type;
+import org.usfirst.frc.team4141.robot.subsystems.ShooterSubsystem;
 
 import com.ctre.CANTalon;
 
@@ -71,6 +72,18 @@ public class Robot extends MDRobotBase {
 				.add("c", new DoubleConfigSetting(0.0, 1.0, 1.0)) //Speed Governor
 				.configure()
 		);	
+		
+		add(new ShooterSubsystem(this, "shooterSubsystem")
+				.add(ShooterSubsystem.motorName1, new CANTalon(0))
+				.add(ShooterSubsystem.motorName2, new CANTalon(1))
+				.add("F", new DoubleConfigSetting(0.0, 1.0, 0.0))
+		 	    .add("P", new DoubleConfigSetting(0.0, 1.0, 0.1))
+				.add("I", new DoubleConfigSetting(0.0, 1.0, 0.8))
+				.add("D", new DoubleConfigSetting(0.0, 1.0, 0.1))
+				.add("RPM", new DoubleConfigSetting(0.0, 100.0, 10.0))
+				.add("shootSpeed",new DoubleConfigSetting(-1.0, 1.0, 0.5))
+				.configure());
+		
 		
 		//TankDrive with 2 motors example:
 //		add(new MDDriveSubsystem(this, "driveSystem", Type.TankDrive)
