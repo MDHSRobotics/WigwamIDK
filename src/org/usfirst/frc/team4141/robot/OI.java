@@ -43,10 +43,10 @@ public class OI extends OIBase{
 		    //the following commands are test move commands useful in testing drive configuration and set up
 		    //comment out and replace as needed
 			.whileHeld("trigger",1,new ShooterCommand(getRobot(), "shooterCommand"))
-			.whenPressed("X",1,new MDMoveCommand(getRobot(),"left command",Direction.left))
-			.whenPressed("A",2,new MDMoveCommand(getRobot(),"reverse command",Direction.reverse))
-			.whenPressed("B",3,new MDMoveCommand(getRobot(),"right command",Direction.right))
-			.whenPressed("Y",4,new MDMoveCommand(getRobot(),"forward command",Direction.forward))
+//			.whenPressed("X",1,new MDMoveCommand(getRobot(),"left command",Direction.left))
+//			.whenPressed("A",2,new MDMoveCommand(getRobot(),"reverse command",Direction.reverse))
+//			.whenPressed("B",3,new MDMoveCommand(getRobot(),"right command",Direction.right))
+//			.whenPressed("Y",4,new MDMoveCommand(getRobot(),"forward command",Direction.forward))
 			.configure()
 		);
 

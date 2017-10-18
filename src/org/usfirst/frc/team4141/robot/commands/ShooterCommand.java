@@ -4,6 +4,7 @@ import org.usfirst.frc.team4141.MDRobotBase.MDCommand;
 import org.usfirst.frc.team4141.MDRobotBase.MDRobotBase;
 import org.usfirst.frc.team4141.MDRobotBase.eventmanager.LogNotification.Level;
 import org.usfirst.frc.team4141.robot.subsystems.ShooterSubsystem;
+import java.util.Date;
 
 
 public class ShooterCommand extends MDCommand {
@@ -23,9 +24,19 @@ public class ShooterCommand extends MDCommand {
 	
 	protected void execute() {
 		shooterSubsystem.shoot();
+		log(Level.DEBUG, "execute()","TRIGGER PRESSED");
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		shooterSubsystem.open();
+		
 	}
 	@Override
 	protected void end() {
+		log(Level.DEBUG, "execute()","TRIGGER RELEASED");
 		shooterSubsystem.stop();
+		shooterSubsystem.close();
 	}
 }
