@@ -74,7 +74,7 @@ public class Robot extends MDRobotBase {
 		);	
 		
 		add(new ShooterSubsystem(this, "shooterSubsystem")
-				.add(ShooterSubsystem.SolenoidPosition.on, new Solenoid(1))
+				.add(ShooterSubsystem.solenoid1, new Solenoid(0))
 				.add(ShooterSubsystem.motorName1, new CANTalon(0))
 				.add(ShooterSubsystem.motorName2, new CANTalon(1))
 				.add("F", new DoubleConfigSetting(0.0, 1.0, 0.0))

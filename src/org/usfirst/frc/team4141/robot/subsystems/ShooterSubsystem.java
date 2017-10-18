@@ -6,7 +6,7 @@ import org.usfirst.frc.team4141.MDRobotBase.config.ConfigSetting;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SolenoidBase;
 import org.usfirst.frc.team4141.MDRobotBase.sensors.MDDigitalInput;
-import org.usfirst.frc.team4141.robot.subsystems.ShooterSubsystem.SolenoidPosition;
+
 
 import edu.wpi.first.wpilibj.SpeedController;
 
@@ -19,10 +19,7 @@ public class ShooterSubsystem extends MDSubsystem {
 		retracted
 	}
 	
-	public enum SolenoidPosition{
-		on,
-		off
-	}
+	public static String solenoid1="Solenoid1";
 	
 	private SpeedController shooterController1;
 	private SpeedController shooterController2;
@@ -36,11 +33,11 @@ public class ShooterSubsystem extends MDSubsystem {
 		super.configure();
 
 		if(getSolenoids()==null 
-				|| !getSolenoids().containsKey(SolenoidPosition.on))
+				|| !getSolenoids().containsKey(solenoid1))
 			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
 		
 		if(getSolenoids()==null 
-				|| !getSolenoids().containsKey(SolenoidPosition.off))
+				|| !getSolenoids().containsKey(solenoid1))
 			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
 		
 		if(getMotors()==null 
@@ -92,12 +89,12 @@ public class ShooterSubsystem extends MDSubsystem {
 	}
 	
 	public void open(){
-		Solenoid piston = (Solenoid)getSolenoids().get(SolenoidPosition.on);
+		Solenoid piston = (Solenoid)getSolenoids().get(solenoid1);
 		piston.set(true);
 	}
 	
 	public void close(){
-		Solenoid piston = (Solenoid)getSolenoids().get(SolenoidPosition.off);
+		Solenoid piston = (Solenoid)getSolenoids().get(solenoid1);
 		piston.set(false);
 
 }
