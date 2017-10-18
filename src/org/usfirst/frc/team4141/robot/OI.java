@@ -9,6 +9,7 @@ import org.usfirst.frc.team4141.MDRobotBase.RioHID;
 import org.usfirst.frc.team4141.robot.commands.MDMoveCommand;
 import org.usfirst.frc.team4141.robot.commands.MDMoveCommand.Direction;
 import org.usfirst.frc.team4141.robot.commands.MDPrintCommand;
+import org.usfirst.frc.team4141.robot.commands.ShooterCommand;
 
 
 /**
@@ -41,6 +42,7 @@ public class OI extends OIBase{
 			.whileHeld("leftBumper",6,new MDPrintCommand(getRobot(),"Left Bumper Command","Left Bumper Command message"))
 		    //the following commands are test move commands useful in testing drive configuration and set up
 		    //comment out and replace as needed
+			.whileHeld("trigger",1,new ShooterCommand(getRobot(), "shooterCommand"))
 			.whenPressed("X",1,new MDMoveCommand(getRobot(),"left command",Direction.left))
 			.whenPressed("A",2,new MDMoveCommand(getRobot(),"reverse command",Direction.reverse))
 			.whenPressed("B",3,new MDMoveCommand(getRobot(),"right command",Direction.right))
