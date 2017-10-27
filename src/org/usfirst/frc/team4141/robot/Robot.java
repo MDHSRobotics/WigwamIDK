@@ -59,14 +59,14 @@ public class Robot extends MDRobotBase {
 		add(new MDDriveSubsystem(this, "driveSystem", Type.TankDrive)
 				.add("accelerometer", new MD_BuiltInAccelerometer())
 				.add("IMU", new MD_IMU())
-				.add(MotorPosition.frontLeft, new CANTalon(1))
-				.add(MotorPosition.frontRight, new CANTalon(2))
-				.add(MotorPosition.rearLeft, new CANTalon(5))
-				.add(MotorPosition.rearRight, new CANTalon(6))
-				.add("Drive-F", new DoubleConfigSetting(0.0, 1.0, 0.0))
-		 	    .add("Drive-P", new DoubleConfigSetting(0.0, 1.0, 0.1))
-				.add("Drive-I", new DoubleConfigSetting(0.0, 1.0, 0.8))
-				.add("Drive-D", new DoubleConfigSetting(0.0, 1.0, 0.1))
+				.add(MotorPosition.frontLeft, new Victor(0))
+				.add(MotorPosition.frontRight, new Victor(1))
+				.add(MotorPosition.rearLeft, new Victor(2))
+				.add(MotorPosition.rearRight, new Victor(3))
+//				.add("Drive-F", new DoubleConfigSetting(0.0, 1.0, 0.0))
+//		 	    .add("Drive-P", new DoubleConfigSetting(0.0, 1.0, 0.1))
+//				.add("Drive-I", new DoubleConfigSetting(0.0, 1.0, 0.8))
+//				.add("Drive-D", new DoubleConfigSetting(0.0, 1.0, 0.1))
 				.add("a", new DoubleConfigSetting(0.0, 1.0, 0.25)) //High Speed - Turn Factor
 		 	    .add("b", new DoubleConfigSetting(0.0, 1.0, 0.4)) //Slow Speed - Turn Factor
 				.add("c", new DoubleConfigSetting(0.0, 1.0, 1.0)) //Speed Governor
@@ -75,8 +75,8 @@ public class Robot extends MDRobotBase {
 		
 		add(new ShooterSubsystem(this, "shooterSubsystem")
 				.add(ShooterSubsystem.solenoid1, new Solenoid(0))
-				.add(ShooterSubsystem.motorName1, new CANTalon(0))
-				.add(ShooterSubsystem.motorName2, new CANTalon(1))
+				.add(ShooterSubsystem.motorName1, new Victor(4))
+				.add(ShooterSubsystem.motorName2, new Victor(5))
 				.add("F", new DoubleConfigSetting(0.0, 1.0, 0.0))
 		 	    .add("P", new DoubleConfigSetting(0.0, 1.0, 0.1))
 				.add("I", new DoubleConfigSetting(0.0, 1.0, 0.8))

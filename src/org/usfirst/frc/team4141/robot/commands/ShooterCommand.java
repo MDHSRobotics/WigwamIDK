@@ -23,7 +23,7 @@ public class ShooterCommand extends MDCommand {
 	private ShooterSubsystem shooterSubsystem;
 	
 	protected void execute() {
-		shooterSubsystem.shoot();
+		shooterSubsystem.shoot(); 
 		log(Level.DEBUG, "execute()","TRIGGER PRESSED");
 		try {
 			Thread.sleep(300);
