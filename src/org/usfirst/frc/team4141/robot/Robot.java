@@ -18,6 +18,7 @@ import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.Victor;
 
 /**
@@ -75,8 +76,8 @@ public class Robot extends MDRobotBase {
 		
 		add(new ShooterSubsystem(this, "shooterSubsystem")
 				.add(ShooterSubsystem.solenoid1, new Solenoid(0))
-				.add(ShooterSubsystem.motorName1, new Victor(4))
-				.add(ShooterSubsystem.motorName2, new Victor(5))
+				.add(ShooterSubsystem.motorName1, new TalonSRX(4))
+				.add(ShooterSubsystem.motorName2, new TalonSRX(5))
 				.add("F", new DoubleConfigSetting(0.0, 1.0, 0.0))
 		 	    .add("P", new DoubleConfigSetting(0.0, 1.0, 0.1))
 				.add("I", new DoubleConfigSetting(0.0, 1.0, 0.8))
