@@ -290,7 +290,7 @@ public class MDDriveSubsystem extends MDSubsystem {
 	  	  //debug("forward = " + forward + ", rotate = " + rotate);
 		  	double[] speeds = interpolator.calculate(forward, rotate);
 		    //debug("left: "+speeds[0]+", right: "+speeds[1]);
-			robotDrive.tankDrive(speeds[0], -speeds[1]);
+			robotDrive.tankDrive(speeds[0], speeds[1]);
 		}
 	}
 	

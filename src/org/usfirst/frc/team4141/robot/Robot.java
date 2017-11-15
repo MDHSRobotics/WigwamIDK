@@ -8,6 +8,7 @@ import org.usfirst.frc.team4141.MDRobotBase.MDRobotBase;
 import org.usfirst.frc.team4141.MDRobotBase.config.DoubleConfigSetting;
 import org.usfirst.frc.team4141.MDRobotBase.config.StringConfigSetting;
 import org.usfirst.frc.team4141.robot.commands.MDPrintCommand;
+import org.usfirst.frc.team4141.robot.subsystems.BallPickupSubsystem;
 import org.usfirst.frc.team4141.robot.subsystems.CoreSubsystem;
 import org.usfirst.frc.team4141.robot.subsystems.MDDriveSubsystem;
 import org.usfirst.frc.team4141.robot.subsystems.MDDriveSubsystem.MotorPosition;
@@ -86,6 +87,11 @@ public class Robot extends MDRobotBase {
 				.add("shootSpeed",new DoubleConfigSetting(-1.0, 1.0, 0.5))
 				.configure());
 		
+		add(new BallPickupSubsystem(this, "ballPickupSubsystem")
+				.add(BallPickupSubsystem.motorCollect, new TalonSRX(4))
+				.add(BallPickupSubsystem.motorCollect1, new TalonSRX(5))
+				.add("pickupSpeed",new DoubleConfigSetting(0.0, 1.0, 0.5))
+				.configure());
 		
 		//TankDrive with 2 motors example:
 //		add(new MDDriveSubsystem(this, "driveSystem", Type.TankDrive)
