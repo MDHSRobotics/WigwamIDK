@@ -6,6 +6,7 @@ import org.usfirst.frc.team4141.MDRobotBase.MDJoystick;
 import org.usfirst.frc.team4141.MDRobotBase.MDRobotBase;
 import org.usfirst.frc.team4141.MDRobotBase.OIBase;
 import org.usfirst.frc.team4141.MDRobotBase.RioHID;
+import org.usfirst.frc.team4141.robot.commands.BallPickupCommand;
 import org.usfirst.frc.team4141.robot.commands.MDMoveCommand;
 import org.usfirst.frc.team4141.robot.commands.MDMoveCommand.Direction;
 import org.usfirst.frc.team4141.robot.commands.MDPrintCommand;
@@ -38,11 +39,12 @@ public class OI extends OIBase{
 		
 		//Configure the joystick(s) here
 		add(new MDJoystick(getRobot(), "joystick", 0)
-			.whenPressed("rightBumper",5,new MDPrintCommand(getRobot(),"Right Bumper Command","Right Bumper Command message"))
+			//.whenPressed("rightBumper",5,new MDPrintCommand(getRobot(),"Right Bumper Command","Right Bumper Command message"))
 			.whileHeld("leftBumper",6,new MDPrintCommand(getRobot(),"Left Bumper Command","Left Bumper Command message"))
 		    //the following commands are test move commands useful in testing drive configuration and set up
 		    //comment out and replace as needed
-			.whileHeld("trigger",1,new ShooterCommand(getRobot(), "shooterCommand"))
+			.whileHeld("trigger",7,new ShooterCommand(getRobot(), "shooterCommand"))
+			.whenPressed("rightBumper", 8, new BallPickupCommand(getRobot(), "ballPickupCommand"))
 //			.whenPressed("X",1,new MDMoveCommand(getRobot(),"left command",Direction.left))
 //			.whenPressed("A",2,new MDMoveCommand(getRobot(),"reverse command",Direction.reverse))
 //			.whenPressed("B",3,new MDMoveCommand(getRobot(),"right command",Direction.right))

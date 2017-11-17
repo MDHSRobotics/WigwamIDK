@@ -59,7 +59,7 @@ public class ShooterSubsystem extends MDSubsystem {
 	
 	public void shoot(){
 		shooterController1.set(shootSpeed);
-		shooterController2.set(-shootSpeed);
+		shooterController2.set(shootSpeed);
 	}
 		
 	public void stop(){

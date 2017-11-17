@@ -77,8 +77,8 @@ public class Robot extends MDRobotBase {
 		
 		add(new ShooterSubsystem(this, "shooterSubsystem")
 				.add(ShooterSubsystem.solenoid1, new Solenoid(0))
-				.add(ShooterSubsystem.motorName1, new TalonSRX(4))
-				.add(ShooterSubsystem.motorName2, new TalonSRX(5))
+				.add(ShooterSubsystem.motorName1, new CANTalon(4))
+				.add(ShooterSubsystem.motorName2, new CANTalon(5))
 				.add("F", new DoubleConfigSetting(0.0, 1.0, 0.0))
 		 	    .add("P", new DoubleConfigSetting(0.0, 1.0, 0.1)) 
 				.add("I", new DoubleConfigSetting(0.0, 1.0, 0.8))
@@ -88,10 +88,17 @@ public class Robot extends MDRobotBase {
 				.configure());
 		
 		add(new BallPickupSubsystem(this, "ballPickupSubsystem")
-				.add(BallPickupSubsystem.motorCollect, new TalonSRX(4))
-				.add(BallPickupSubsystem.motorCollect1, new TalonSRX(5))
+				.add(BallPickupSubsystem.motorCollect, new CANTalon(4))
+				.add(BallPickupSubsystem.motorCollect1, new CANTalon(5))
 				.add("pickupSpeed",new DoubleConfigSetting(0.0, 1.0, 0.5))
 				.configure());
+		
+//		add(new AutonomousSubsystem(this, "autoSubsystem")
+//				.add("autoSpeed",new DoubleConfigSetting(0.0, 1.0, 0.5))
+//				.add("autoDuration",new DoubleConfigSetting(0.0, 15.0, 5.0))
+//				.configure());
+		
+		
 		
 		//TankDrive with 2 motors example:
 //		add(new MDDriveSubsystem(this, "driveSystem", Type.TankDrive)
