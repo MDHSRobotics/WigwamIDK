@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 
 public class ShooterSubsystem extends MDSubsystem {
 	
-	private double shootSpeed = 1;
+	private double shootSpeed = .99;
 	
 	public enum SwitchPosition{
 		extended,
@@ -32,13 +32,13 @@ public class ShooterSubsystem extends MDSubsystem {
 	public MDSubsystem configure(){
 		super.configure();
 
-		if(getSolenoids()==null 
-				|| !getSolenoids().containsKey(solenoid1))
-			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
-		
-		if(getSolenoids()==null 
-				|| !getSolenoids().containsKey(solenoid1))
-			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
+//		if(getSolenoids()==null 
+//				|| !getSolenoids().containsKey(solenoid1))
+//			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
+//		
+//		if(getSolenoids()==null 
+//				|| !getSolenoids().containsKey(solenoid1))
+//			throw new IllegalArgumentException("Invalid solenoid configuration for shoot system.");
 		
 		if(getMotors()==null 
 				|| !getMotors().containsKey(motorName1))
@@ -88,25 +88,25 @@ public class ShooterSubsystem extends MDSubsystem {
 
 	}
 	
-	public void open(){
-		Solenoid piston = (Solenoid)getSolenoids().get(solenoid1);
-		piston.set(true);
-	}
-	
-	public void close(){
-		Solenoid piston = (Solenoid)getSolenoids().get(solenoid1);
-		piston.set(false);
-
-}
-	
-	public boolean isRetracted(){
-		return ((MDDigitalInput)(getSensors().get(SwitchPosition.retracted.toString()))).get();
-}
-	
-	public boolean isExtended(){
-		return ((MDDigitalInput)(getSensors().get(SwitchPosition.extended.toString()))).get();
-		
-}
+//	public void open(){
+//		Solenoid piston = (Solenoid)getSolenoids().get(solenoid1);
+//		piston.set(true);
+//	}
+//	
+//	public void close(){
+//		Solenoid piston = (Solenoid)getSolenoids().get(solenoid1);
+//		piston.set(false);
+//
+//}
+//	
+//	public boolean isRetracted(){
+//		return ((MDDigitalInput)(getSensors().get(SwitchPosition.retracted.toString()))).get();
+//}
+//	
+//	public boolean isExtended(){
+//		return ((MDDigitalInput)(getSensors().get(SwitchPosition.extended.toString()))).get();
+//		
+//}
 
 	
 	

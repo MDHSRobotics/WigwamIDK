@@ -24,19 +24,19 @@ public class ShooterCommand extends MDCommand {
 	
 	protected void execute() {
 		shooterSubsystem.shoot(); 
-		log(Level.DEBUG, "execute()","TRIGGER PRESSED");
-		try {
-			Thread.sleep(300);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		shooterSubsystem.open();
+//		log(Level.DEBUG, "execute()","TRIGGER PRESSED");
+//		try {
+//			Thread.sleep(300);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+
 		
 	}
 	@Override
 	protected void end() {
 		log(Level.DEBUG, "execute()","TRIGGER RELEASED");
 		shooterSubsystem.stop();
-		shooterSubsystem.close();
+
 	}
 }

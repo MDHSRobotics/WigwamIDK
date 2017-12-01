@@ -13,7 +13,7 @@ public class BallPickupSubsystem extends MDSubsystem {
 
 	public static String motorCollect="collectBallMotor";
 	public static String motorCollect1="collectBallMotor1";
-	private double pickupSpeed=-0.3;
+	private double pickupSpeed=0.1;
 	private SpeedController motorController;
 	private SpeedController motorController1;
 	
@@ -52,8 +52,8 @@ public class BallPickupSubsystem extends MDSubsystem {
 	}
 	
 	public void collect(){
-		motorController.set(pickupSpeed);
-		motorController1.set(pickupSpeed);
+		motorController.set(-pickupSpeed);
+		motorController1.set(-pickupSpeed);
 	}
 	
 	public void stop(){
