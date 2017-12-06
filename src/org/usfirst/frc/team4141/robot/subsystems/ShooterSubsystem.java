@@ -14,12 +14,12 @@ public class ShooterSubsystem extends MDSubsystem {
 	
 	private double shootSpeed = .99;
 	
-	public enum SwitchPosition{
-		extended,
-		retracted
-	}
-	
-	public static String solenoid1="Solenoid1";
+//	public enum SwitchPosition{
+//		extended,
+//		retracted
+//	}
+//	
+//	public static String solenoid1="Solenoid1";
 	
 	private SpeedController shooterController1;
 	private SpeedController shooterController2;

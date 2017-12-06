@@ -24,7 +24,7 @@ public class ShooterCommand extends MDCommand {
 	
 	protected void execute() {
 		shooterSubsystem.shoot(); 
-//		log(Level.DEBUG, "execute()","TRIGGER PRESSED");
+		log(Level.DEBUG, "execute()","TRIGGER PRESSED");
 //		try {
 //			Thread.sleep(300);
 //		} catch (InterruptedException e) {
